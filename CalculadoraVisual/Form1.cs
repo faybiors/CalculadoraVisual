@@ -56,7 +56,13 @@ namespace CalculadoraVisual
                     R = A * B;
                     break;
                 case "Divisão":
-                    R = A / B;
+                    if(B != 0)
+                        R = A / B;
+                    else
+                    {
+                        MessageBox.Show("Impossível dividir por zero!");
+                        return;
+                    }
                     break;
                 default:
                     MessageBox.Show("Selecione uma operação");
