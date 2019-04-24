@@ -19,8 +19,28 @@ namespace CalculadoraVisual
 
         private void button1_Click(object sender, EventArgs e)
         {
-            float A = int.Parse(textBox1.Text);
-            float B = int.Parse(textBox2.Text);
+            float A = 0;
+            float B = 0;
+
+            try
+            {
+                A = float.Parse(textBox1.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Número 1 inválido!");
+                return;
+            }
+
+            try
+            {
+                B = float.Parse(textBox2.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Número 2 inválido!");
+                return;
+            }
 
             float R = 0;
 
@@ -38,6 +58,9 @@ namespace CalculadoraVisual
                 case "Divisão":
                     R = A / B;
                     break;
+                default:
+                    MessageBox.Show("Selecione uma operação");
+                    return;
             }
             MessageBox.Show(R.ToString());
         }
